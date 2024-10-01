@@ -1,0 +1,59 @@
+PROBLEM STATEMENT:
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
+
+Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+You may assume that you have an infinite number of each kind of coin.
+
+ 
+
+Example 1:
+
+Input: coins = [1,2,5], amount = 11
+Output: 3
+Explanation: 11 = 5 + 5 + 1
+
+
+
+SOLUTION:
+
+package com.DSA;
+import java.util.*;
+public class Coin_Change_Recursion {
+	static int coinChange(int[]coins,int amount) {
+		int n=coins.length;
+		if(amount==0) {
+			return 1;
+		}
+		if(amount<0) {
+			return 0;
+		}
+		
+		 int minCoins=Integer.MAX_VALUE;
+		// Trying every coin that has value less than given amount
+		 for(int i=0;i<coins.length;i++) {
+			 int result= coinChange(coins,amount-coins[n-1]);
+			 if(result!=Integer.MAX_VALUE) {
+				 minCoins= result+1;
+			 }
+		 }return minCoins;
+		}
+	public static void main(String[]args) {
+		int coins[]= {1,2,5};
+		int n=coins.length;
+		int amount=11;
+		System.out.println("Minimum coins required is "+ coinChange(coins, amount) );
+		
+	}
+	}
+
+
+
+OUTPUT:
+Minimum coins required is 3
+
+
+
+
+
+
