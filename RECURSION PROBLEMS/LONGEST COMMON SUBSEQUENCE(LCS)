@@ -35,8 +35,7 @@ class Solution {
 		return lcs(S1,S2,S1.length(),S2.length());
     }
     static int lcs(String S1,String S2, int m,int n){
-         //int m=S1.length();
-         //int n= S2.length();
+         
         if(m==0||n==0) 
 			return 0;
 		
